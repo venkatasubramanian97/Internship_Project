@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD INTERNSHIP CERTIFICATE</title>
+    <link rel="stylesheet" href="" th:href="@{/Certificate/Add_Certificate.css}" />
+</head>
+
+<body>
+    <div class="color">
+        <div class="container">
+            <a class="back" href="/certificate/details">Back</a>
+            <div class="certificateForm">
+                <h1>Create Internship Certificate</h1>
+
+                <form id="certificateForm">
+                    <label for="studentName">Student Name:</label>
+                    <input type="text" id="studentName" name="studentName" required><br>
+
+                    <label for="courseName">Course Name:</label>
+                    <input type="text" id="courseName" name="courseName" required><br>
+
+                    <label for="issueDate">Issue Date:</label>
+                    <input type="date" id="issueDate" name="issueDate" required><br>
+
+                    <label for="issuedBy">Issued By:</label>
+                    <input type="text" id="issuedBy" name="issuedBy" required><br>
+
+                    <label for="studentId">Student Id:</label>
+                    <input type="text" id="studentId" name="studentId" required><br>
+
+                    <button type="button" onclick="generateCertificate()">Generate Certificate</button>
+                </form>
+            </div>
+
+            <div class="certificatePreview">
+                <h2>Certificate Preview:</h2>
+                <div id="certificatePreview" class="certificate-preview">
+                    <div class="certificate-header">
+                        <h3 style="color: blue;">VETRI TECHNOLOGY SOLUTIONS</h3>
+                        <div style="font-size: 18px;">CERTIFICATE</div>
+                        <div style="font-size: 14px;">O F I N T E R N S H I P</div>
+                        <div style="font-size: 12px;">THIS CERTIFICATE IS PROUDLY PRESENTED BY</div>
+                    </div>
+                    <div class="certificate-body">
+                        <div style="font-size: larger; color: midnightblue;">
+                            <span id="certStudentName1">[Intern Name]</span>
+                        </div>
+                        We are happy to certify that <span id="certStudentName2">[Intern Name]</span> has completed
+                        their internship as a <span id="certCourseName">[Internship Program]</span> from Date: <span
+                            id="certIssueDate">[Date]</span><br>
+                        We appreciate their work and contributions.<br>
+                    </div>
+                    <div class="certificate-footer">
+                        <div>
+                            <div>Sincerely Yours</div>
+                            <div><span id="certIssuedBy1">[Issuer]</span></div>
+                            <div style="font-size: larger; font-weight: bold;">PRAVIN KUMAR P</div>
+                            <div style="font-size: medium;">Founder & CEO</div>
+                        </div>
+                        <div>
+                            <div>Sincerely Yours</div>
+                            <div><span id="certIssuedBy2">[Issuer]</span></div>
+                            <div style="font-size: larger; font-weight: bold;">PUNITHA V</div>
+                            <div style="font-size: medium;">General Manager</div>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="/certificates/add" method="post" id="submitForm" style="display:none;" enctype="multipart/form-data">
+                    <input type="hidden" id="certificateData" name="certificateData">
+                    <input type="hidden" id="hiddenStudentName" name="studentName">
+                    <input type="hidden" id="hiddenCourseName" name="courseName">
+                    <input type="hidden" id="hiddenIssueDate" name="issueDate">
+                    <input type="hidden" id="hiddenIssuedBy" name="issuedBy">
+                    <input type="hidden" id="hiddenStudentId" name="studentId">
+                </form>
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+            <script>
+                function generateCertificate() {
+                    // Get the values from the form fields
+                    const studentName = document.getElementById('studentName').value;
+                    const courseName = document.getElementById('courseName').value;
+                    const issueDate = document.getElementById('issueDate').value;
+                    const issuedBy = document.getElementById('issuedBy').value;
+                    const studentId = document.getElementById('studentId').value;
+
+                    // Update the preview fields
+                    document.getElementById('certStudentName1').textContent = studentName;
+                    document.getElementById('certStudentName2').textContent = studentName;
+                    document.getElementById('certCourseName').textContent = courseName;
+                    document.getElementById('certIssueDate').textContent = issueDate;
+                    document.getElementById('certIssuedBy1').textContent = issuedBy;
+                    document.getElementById('certIssuedBy2').textContent = issuedBy;
+
+                    // Convert the certificate preview to an image
+                    html2canvas(document.getElementById('certificatePreview')).then(canvas => {
+                        const imageData = canvas.toDataURL('image/png');
+                        document.getElementById('certificateData').value = imageData;
+
+                        // Set hidden fields with form data
+                        document.getElementById('hiddenStudentName').value = studentName;
+                        document.getElementById('hiddenCourseName').value = courseName;
+                        document.getElementById('hiddenIssueDate').value = issueDate;
+                        document.getElementById('hiddenIssuedBy').value = issuedBy;
+                        document.getElementById('hiddenStudentId').value = studentId;
+
+                        // Submit the form
+                        document.getElementById('submitForm').submit();
+                    });
+                }
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

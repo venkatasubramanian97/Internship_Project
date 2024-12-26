@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title> UPDATE STUDENT</title>
+	<link rel="stylesheet" href="" th:href="@{/Student/Update_Student.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/student/details">Back</a>
+		<div class="updateStudent">
+			<h3 style="color: red;">UPDATE EXISTING STUDENT</h3>
+
+			<form th:action="@{'/updatingStudent/' + ${student.id}}" th:object="${student}" method="post">
+
+				<input type="hidden" name="id" th:value="${student.id}" />
+
+				Student_Name:
+				<input type="text" name="studentName" th:value="${student.studentName}" minlength="2" required />
+
+				Student_Number:
+				<input type="tel" name="studentNumber" th:value="${student.studentNumber}" pattern="[0-9]{10}"
+					required />
+
+				Student_Password:
+				<input type="password" name="studentPassword" th:value="${student.studentPassword}" minlength="5"
+					required />
+
+				Student_Email:
+				<input type="email" name="studentEmail" th:value="${student.studentEmail}" required /> <br />
+
+				<button type="submit">Update Student</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

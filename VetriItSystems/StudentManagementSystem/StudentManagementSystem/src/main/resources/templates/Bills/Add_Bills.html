@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Generate Fees Bill</title>
+	<link rel="stylesheet" href="" th:href="@{/Bills/Add_Bills.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<div class="container">
+			<a class="back" href="/bills/details">Back</a>
+
+			<div class="billsForm">
+				<h1>Create Fees Bill</h1>
+
+				<form id="billsForm">
+					<label for="studentName">Student Name:</label>
+					<input type="text" id="studentName" name="studentName" required><br>
+
+					<label for="courseName">Course Name:</label>
+					<input type="text" id="courseName" name="courseName" required><br>
+
+					<label for="amount">Fees Amount:</label>
+					<input type="text" id="amount" name="amount" required><br>
+
+					<label for="issueDate">Issue Date:</label>
+					<input type="date" id="issueDate" name="issueDate" required><br>
+
+					<label for="issuedBy">Issued By:</label>
+					<input type="text" id="issuedBy" name="issuedBy" required><br>
+
+					<label for="studentId">Student Id:</label>
+					<input type="text" id="studentId" name="studentId" required><br>
+
+					<button type="button" onclick="generateBill()">Generate Bill</button>
+				</form>
+			</div>
+
+			<div class="billsPreview">
+				<h2>Bill Preview:</h2>
+				<div id="billPreview" class="bills-preview">
+
+					<div class="bills-header">
+						<h3 style="color: blue;">VETRI TECHNOLOGY SOLUTIONS</h3>
+						<div style="font-size: 18px;">FEES BILL</div>
+					</div>
+
+					<div class="bills-body" id="billBody">
+						<div style="font-size: larger; color: midnightblue;">
+							Student_Name : <span id="billStudentName">[Student Name]</span> <br>
+							Course_Name : <span id="billCourseName">[Course Name]</span>
+							, Fees_Amount : <span id="billAmount">[Amount]</span><br>
+							Student_Id : <span id="billStudentId">[Student Id] </span>
+							, Date : <span id="billIssueDate">[Date]</span><br>
+						</div>
+					</div>
+
+					<div class="bills-footer">
+						<div>
+							<div>Sincerely Yours</div>
+							<div><span id="certIssuedBy1">[Issuer]</span></div>
+							<div style="font-size: larger; font-weight: bold;">PRAVIN KUMAR P</div>
+							<div style="font-size: medium;">Founder & CEO</div>
+						</div>
+						<div>
+							<div>Sincerely Yours</div>
+							<div><span id="certIssuedBy2">[Issuer]</span></div>
+							<div style="font-size: larger; font-weight: bold;">PUNITHA V</div>
+							<div style="font-size: medium;">General Manager</div>
+						</div>
+					</div>
+				</div>
+
+				<form action="/fees/add" method="post" id="submitForm" style="display:none;"
+					enctype="multipart/form-data">
+					<input type="hidden" id="billData" name="billData">
+					<input type="hidden" id="hiddenStudentName" name="studentName">
+					<input type="hidden" id="hiddenCourseName" name="courseName">
+					<input type="hidden" id="hiddenAmount" name="amount">
+					<input type="hidden" id="hiddenIssueDate" name="issueDate">
+					<input type="hidden" id="hiddenIssuedBy" name="issuedBy">
+					<input type="hidden" id="hiddenStudentId" name="studentId">
+				</form>
+			</div>
+
+			<script>
+				function generateBill() {
+					const studentName = document.getElementById('studentName').value;
+					const courseName = document.getElementById('courseName').value;
+					const amount = document.getElementById('amount').value;
+					const issueDate = document.getElementById('issueDate').value;
+					const issuedBy = document.getElementById('issuedBy').value;
+					const studentId = document.getElementById('studentId').value;
+
+					// Update the preview section
+					document.getElementById('billStudentName').textContent = studentName;
+					document.getElementById('billCourseName').textContent = courseName;
+					document.getElementById('billAmount').textContent = amount;
+					document.getElementById('billStudentId').textContent = studentId;
+					document.getElementById('billIssueDate').textContent = issueDate;
+					document.getElementById('certIssuedBy1').textContent = issuedBy;
+					document.getElementById('certIssuedBy2').textContent = issuedBy;
+
+					// Capture and submit the form
+					html2canvas(document.getElementById('billPreview')).then(canvas => {
+						const imageData = canvas.toDataURL('image/png');
+						document.getElementById('billData').value = imageData;
+
+						// Populate hidden inputs
+						document.getElementById('hiddenStudentName').value = studentName;
+						document.getElementById('hiddenCourseName').value = courseName;
+						document.getElementById('hiddenAmount').value = amount;
+						document.getElementById('hiddenIssueDate').value = issueDate;
+						document.getElementById('hiddenIssuedBy').value = issuedBy;
+						document.getElementById('hiddenStudentId').value = studentId;
+
+						// Submit the form
+						document.getElementById('submitForm').submit();
+					});
+				}
+			</script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+		</div>
+	</div>
+</body>
+
+</html>

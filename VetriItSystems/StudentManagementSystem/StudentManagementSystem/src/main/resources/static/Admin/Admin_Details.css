@@ -1,0 +1,146 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	background-color: #f4f4f4;
+}
+
+.back {
+	width: 100px;
+	text-align: center;
+	color: #800080;
+	text-decoration: none;
+	border: 2px solid #800080;
+	padding: 10px;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	font-weight: bold;
+}
+
+.back:hover {
+	background-color: #800080;
+	color: white;
+	border: 2px solid #800080;
+	font-weight: bold;
+}
+
+.button-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+.admins_nav {
+	flex: 2.5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #800080;
+	color: white;
+	height: 100vh;
+}
+
+.admins_nav img {
+	margin: auto;
+	border-radius: 50%;
+}
+
+.admins_nav .btns {
+	margin: auto;
+	display: block;
+	cursor: pointer;
+	padding: 10px;
+	font-family: sans-serif;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	transition: background-color 0.5s ease, color 0.5s ease;
+	width: 100%;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.admins_nav .btns:hover {
+	background-color: white;
+	color: #800080;
+}
+
+.heading-underline {
+	margin-top: 20px;
+	padding-bottom: 10px;
+	position: relative;
+	text-align: center;
+	top: -60px;
+}
+
+.heading-underline::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	width: 80%;
+	border-bottom: 2px solid black;
+}
+
+.admins {
+	flex: 9.5;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	background-color: #AFEEEE;
+	padding: 70px 80px;
+}
+
+.button {
+	width: 300px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	transition: background-color 0.3s ease;
+	border-radius: 10px;
+}
+
+.b1 {
+	background-color: #1E90FF;
+}
+
+.b1:hover {
+	box-shadow: 2px 2px 3px 3px #00BFFF;
+}
+
+.b2 {
+	background-color: #FFA500;
+}
+
+.b2:hover {
+	box-shadow: 2px 2px 3px 3px #FF6347;
+}
+
+.b3 {
+	background-color: #008000;
+}
+
+.b3:hover {
+	box-shadow: 2px 2px 3px 3px #2E8B57;
+}
+
+.b4 {
+	background-color: #DC143C;
+}
+
+.b4:hover {
+	box-shadow: 2px 2px 3px 3px #FFA07A;
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>ADMIN UPDATE MESSAGE PAGE</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="" th:href="@{/AdminMessage/Admin_Update_Message_Data.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/message/details">Back</a>
+		<center>
+			<section class="tables">
+				<div class="adminmessage">
+					<h2>Message Details :</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>S_No</th>
+								<th>Message_Content</th>
+								<th>Message_Description</th>
+								<th>Message_DateTime</th>
+								<th>Student_Id</th>
+								<th>Admin_Id</th>
+								<th>Action</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="adminMessage, iterstat : ${adminMessages}">
+								<td th:text="${iterstat.index + 1}"></td>
+								<td th:text="${adminMessage.content}"></td>
+								<td th:text="${adminMessage.description}"></td>
+								<td th:text="${adminMessage.sentTime}"></td>
+								<td th:text="${adminMessage.studentId}"></td>
+								<td th:text="${adminMessage.adminId}"></td>
+								<td class="pen"><a style="color: blue;" href=""
+										th:href="@{'/adminUpdateMessage/'+${adminMessage.id}}"><i
+											class="fa-solid fa-pen"></i></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</center>
+	</div>
+</body>
+
+</html>

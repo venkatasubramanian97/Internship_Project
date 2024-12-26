@@ -1,0 +1,56 @@
+body {
+	background-color: #DDA0DD;
+	background-size: inherit;
+	background-repeat: round;
+}
+
+div {
+	background: linear-gradient(to right, #F4A460, #FFDEAD, #FF69B4);
+	margin-top: 7px;
+	min-height: 88vh;
+	padding-bottom: 40px;
+	padding-top: 20px;
+}
+
+table {
+	width: 90%;
+	padding: 5px;
+	border: none;
+	background-color: #DDA0DD;
+	margin-bottom: 50px;
+}
+
+td {
+	padding: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+}
+
+th {
+	padding: 12px;
+	background-color: #800080;
+	color: white;
+}
+
+h2 {
+	color: #800080;
+	padding: 20px
+}
+
+.back {
+	width: max-content;
+	color: #800080;
+	text-align: center;
+	text-decoration: none;
+	border: 2px #800080 solid;
+	font-weight: bold;
+	padding: 10px;
+	position: fixed;
+}
+
+.back:hover {
+	border: 2px solid #800080;
+	background-color: #800080;
+	color: white
+}

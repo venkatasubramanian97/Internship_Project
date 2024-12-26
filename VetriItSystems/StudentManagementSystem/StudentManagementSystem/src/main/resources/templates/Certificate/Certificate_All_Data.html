@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VIEW ALL CERTIFICATES</title>
+	<link rel="stylesheet" href="" th:href="@{/Certificate/Certificate_All_Data.css}" />
+
+	<style>
+		img {
+			max-width: 200px;
+			height: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<a class="back" href="/certificate/details">Back</a>
+	<center>
+		<div class="certificates">
+			<h2>Certificate Details :</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>S.No</th>
+						<th>Student Name</th>
+						<th>Course Name </th>
+						<th>Issue Date</th>
+						<th>Issued By</th>
+						<th>Student Id</th>
+						<th>Certificate Image</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="certificate, iterStat : ${certificates}">
+						<td th:text="${iterStat.index + 1}"></td>
+						<td th:text="${certificate.studentName}"></td>
+						<td th:text="${certificate.courseName}"></td>
+						<td th:text="${certificate.issueDate}"></td>
+						<td th:text="${certificate.issuedBy}"></td>
+						<td th:text="${certificate.studentId}"></td>
+						<td>
+							<img th:src="'data:image/png;base64,' + ${certificate.getCertificateImageBase64()}"
+								alt="Certificate Image" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</center>
+</body>
+
+</html>

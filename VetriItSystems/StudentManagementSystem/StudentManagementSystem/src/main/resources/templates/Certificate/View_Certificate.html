@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VIEW CERTIFICATE</title>
+	<link rel="stylesheet" href="" th:href="@{/Certificate/View_Certificate.css}" />
+
+	<style>
+		img {
+			max-width: 800px;
+			height: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/Certificate/details">Back</a>
+		<center>
+			<div class="certificates">
+				<h2>Certificate Details :</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>S.No</th>
+							<th>Certificate Image</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="certificate, iterStat : ${certificates}">
+							<td th:text="${iterStat.index + 1}"></td>
+							<td style="display: flex; justify-content: center;">
+								<img th:src="'data:image/png;base64,' + ${certificate.getCertificateImageBase64()}"
+									alt="Certificate Image" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</center>
+	</div>
+</body>
+
+</html>

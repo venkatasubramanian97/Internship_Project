@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>STUDENT LOGIN PAPG</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="" th:href="@{/Login/Login.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/home">Back</a>
+		<div class="student">
+			<h2>For <span style="color:#800080;">Students</span></h2>
+
+			<form action="" th:action="@{/studentLogin}" method="post">
+				<b>Email :</b>
+				<input type="email" name="studentEmail" placeholder="Enter email..." class="email"> <br />
+				<b> Password:</b>
+				<input type="password" name="studentPassword" placeholder="Enter password..." class="password"><br />
+				<small style="color: red;" th:text="${error1}"></small><br />
+				<button type="submit" class="loginButton">Log in</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

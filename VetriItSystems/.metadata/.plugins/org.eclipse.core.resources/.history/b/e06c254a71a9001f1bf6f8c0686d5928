@@ -1,0 +1,22 @@
+package com.example.StudentManagementSystem.Repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.StudentManagementSystem.Model.Admin;
+import com.example.StudentManagementSystem.Model.AdminMessage;
+import com.example.StudentManagementSystem.Model.Student;
+
+@Repository
+public interface AdminMessageRepository extends JpaRepository<AdminMessage, Integer> {
+    // Find messages by admin
+    List<AdminMessage> findByAdmin(Admin admin);
+
+    // Find messages by student
+    List<AdminMessage> findByStudent(Student student);
+
+    // Delete messages by admin ID
+    void deleteByAdmin_Id(int id);
+}

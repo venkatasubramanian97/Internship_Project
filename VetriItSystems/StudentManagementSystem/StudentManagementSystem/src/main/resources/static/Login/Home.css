@@ -1,0 +1,56 @@
+body {
+	background: linear-gradient(to right, #F4A460, #FFDEAD, #FF69B4);
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.LoginContainer {
+	display: flex;
+	justify-content: space-between;
+	width: 60%;
+}
+
+.student,
+.admin {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: whitesmoke;
+	height: 300px;
+	width: 300px;
+	color: white;
+	border-radius: 10px;
+}
+
+.admin h2,
+.student h2 {
+	margin-top: 5px;
+	color: #800080;
+}
+
+.btns {
+	margin-top: 30px;
+	border: 1px solid #800080;
+	cursor: pointer;
+	padding: 8px;
+	background-color: white;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-weight: bold;
+	color: #800080;
+	width: 80px;
+	text-align: center;
+	transition: width 1s ease;
+}
+
+.btns:hover {
+	width: 110px;
+	border-radius: 5px;
+	color: antiquewhite;
+	background-color: #800080;
+	text-align: center;
+}

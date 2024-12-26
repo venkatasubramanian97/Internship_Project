@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>CERTIFICATE PAGE</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" th:href="@{/Admin/Admin_Details.css}" />
+</head>
+
+<body>
+	<div class="admins_nav">
+		<h2 style="margin-top: 30px; margin-bottom: 30px;text-align: center;">CERTIFICATE DETAILS</h2>
+		<img src="/IMAGES/login.jpg" alt="Admin Image" style="width:200px; height:200px; border-radius: 50%;">
+		<a class="btns" th:href="@{/admin/details}">Admin Details</a>
+		<a class="btns" th:href="@{/student/details}">Student Details</a>
+		<a class="btns" th:href="@{/message/details}">Message Details</a>
+		<a class="btns" th:href="@{/certificate/details}">Certificate Details</a>
+		<a class="btns" th:href="@{/fees/details}">Fees Details</a>
+		<a class="btns" th:href="@{/bills/details}">Bills Details</a>
+	</div>
+
+	<div class="admins">
+		<a class="back" href="/admin">Back</a>
+		<a th:href="@{/certificate/all/data}" class="button-link">
+			<div class="button b1">
+				<h3 class="heading-underline">Certificate Details</h3>
+				<p style="font-weight: bold;">Get All Certificate</p>
+			</div>
+		</a>
+		<a th:href="@{/addCertificate}" class="button-link">
+			<div class="button b2">
+				<h3 class="heading-underline">Certificate Details</h3>
+				<p style="font-weight: bold;">Add New Certificate</p>
+			</div>
+		</a>
+		<a th:href="@{/updateCertificate}" class="button-link">
+			<div class="button b3">
+				<h3 class="heading-underline">Certificate Details</h3>
+				<p style="font-weight: bold;">Update Certificate</p>
+			</div>
+		</a>
+		<a th:href="@{/deleteCertificate}" class="button-link">
+			<div class="button b4">
+				<h3 class="heading-underline">Certificate Details</h3>
+				<p style="font-weight: bold;">Delete Certificate</p>
+			</div>
+		</a>
+	</div>
+</body>
+
+</html>

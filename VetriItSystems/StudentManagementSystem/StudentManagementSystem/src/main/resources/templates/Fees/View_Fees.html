@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>FEES DETAILS</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="" th:href="@{/Fees/View_Fees.css}" />
+</head>
+
+<body>
+	<a class="back" href="/Fees/details">Back</a>
+	<center>
+		<div class="fees">
+			<h2>Fees Details :</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>S_No</th>
+						<th>Student_Name</th>
+						<th>Course_Name</th>
+						<th>Date</th>
+						<th>Amount</th>
+						<th>Student_Id</th>
+						<th>Admin_Id</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="fees, iterstat : ${fees}">
+						<td th:text="${iterstat.index + 1}"></td>
+						<td th:text="${fees.studentName}"></td>
+						<td th:text="${fees.courseName}"></td>
+						<td th:text="${fees.date}"></td>
+						<td th:text="${fees.amount}"></td>
+						<td th:text="${fees.studentId}"></td>
+						<td th:text="${fees.adminId}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</center>
+</body>
+
+</html>

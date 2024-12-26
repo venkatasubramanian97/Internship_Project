@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title> UPDATE FEES</title>
+	<link rel="stylesheet" href="" th:href="@{/Fees/Update_Fees.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/fees/details">Back</a>
+		<div class="updateFees">
+			<h3 style="color: red;">UPDATE EXISTING FEES</h3>
+
+			<form th:action="@{'/updatingFees/' + ${fees.id}}" th:object="${fees}" method="post">
+
+				<input type="hidden" th:field="*{id}" />
+
+				Student Name:
+				<input type="text" th:field="*{studentName}" minlength="2" required />
+
+				Course Name:<br>
+				<select th:field="*{courseName}" required>
+					<option value="">Select course (optional)</option>
+					<option value="UI/UX Design">UI/UX Design</option>
+					<option value="Java Full Stack Development">Java Full Stack Development</option>
+					<option value="Python Full Stack Development">Python Full Stack Development</option>
+					<option value="Data Analytics">Data Analytics</option>
+					<option value="Web Development">Web Development</option>
+				</select><br>
+
+				Fees Amount:
+				<input type="text" th:field="*{amount}" minlength="3" required />
+
+				Student ID:
+				<input type="text" th:field="*{student}" minlength="1" required /><br>
+
+				<button type="submit">Update Fees</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+
+</html>

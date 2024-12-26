@@ -1,0 +1,105 @@
+body {
+	background-color: #DDA0DD;
+}
+
+.color {
+	background: linear-gradient(to right, #F4A460, #FFDEAD, #FF69B4);
+	margin-top: 8px;
+	min-height: 80vh;
+	padding-bottom: 90px;
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.back {
+	width: 100px;
+	text-align: center;
+	color: #800080;
+	text-decoration: none;
+	border: 2px solid #800080;
+	padding: 10px;
+	position: fixed;
+	top: 8px;
+	left: 8px;
+	font-weight: bold;
+}
+
+.back:hover {
+	width: 120px;
+	background-color: #800080;
+	color: white;
+}
+
+.tables {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	flex-wrap: wrap;
+	position: relative;
+	top: 100px;
+	gap: 10%;
+}
+
+.admins,
+.student,
+.message,
+.certificate,
+.fees {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	background-color: whitesmoke;
+	height: 400px;
+	width: 270px;
+	color: #800080;
+	border-radius: 10px;
+	margin-bottom: 100px;
+}
+
+.admin h2,
+.student h2,
+.message h2,
+.certificate h2,
+.fees h2 {
+	margin-top: 5px;
+}
+
+.btns {
+	margin-top: 3px;
+	display: block;
+	cursor: pointer;
+	padding: 8px;
+	background-color: whitesmoke;
+	font-family: sans-serif;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	transition: background-color 0.5s ease, color 0.5s ease;
+	width: 100%;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.btns:hover {
+	color: antiquewhite;
+	background-color: #800080;
+	transition: 0.3s;
+}
+
+.btns_delete {
+	font-size: medium;
+	width: 270px;
+	background-color: whitesmoke;
+}
+
+.btns_delete:hover {
+	background-color: darkred;
+}

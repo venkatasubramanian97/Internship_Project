@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>ADMIN UPDATE MESSAGE</title>
+	<link rel="stylesheet" href="" th:href="@{/AdminMessage/Admin_Update_Message.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/message/details">Back</a>
+		<div class="updateMessage">
+			<h3 style="color: red;">UPDATE EXISTING MESSAGE</h3>
+
+			<form th:action="@{'/adminUpdatingMessage/' + ${adminMessage.id}}" th:object="${adminMessage}"
+				method="post">
+
+				<input type="hidden" name="id" th:value="${adminMessage.id}" />
+
+				Message_Content:
+				<input type="text" name="content" th:value="${adminMessage.content}" minlength="3" required />
+
+				Message_Description:
+				<textarea name="description" rows="4" cols="35" required
+					th:text="${adminMessage.description}"></textarea><br>
+
+				Student_Id:
+				<input type="text" name="student" th:value="${adminMessage.student.id}" minlength="1" required /><br>
+
+				<button type="submit">Update Message</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

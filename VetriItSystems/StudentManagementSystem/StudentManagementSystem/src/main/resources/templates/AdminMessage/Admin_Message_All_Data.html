@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>ADMIN MESSAGE ALL DATA</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="" th:href="@{/AdminMessage/Admin_Message_All_Data.css}" />
+</head>
+
+<body>
+	<a class="back" href="/message/details">Back</a>
+	<center>
+		<div class="adminMessage">
+			<h2>Admin Message Details :</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>S_No</th>
+						<th>Message_Content</th>
+						<th>Message_Description</th>
+						<th>Message_DateTime</th>
+						<th>Student_Id</th>
+						<th>Admin_Id</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="adminMessage, iterstat : ${adminMessages}">
+						<td th:text="${iterstat.index + 1}"></td>
+						<td th:text="${adminMessage.content}"></td>
+						<td th:text="${adminMessage.description}"></td>
+						<td th:text="${adminMessage.sentTime}"></td>
+						<td th:text="${adminMessage.studentId}"></td>
+						<td th:text="${adminMessage.adminId}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="studentMessage">
+			<h2>Student Message Details :</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>S_No</th>
+						<th>Message_Content</th>
+						<th>Message_Description</th>
+						<th>Message_DateTime</th>
+						<th>Student_Id</th>
+						<th>Admin_Id</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="studentMessage, iterstat : ${studentMessage}">
+						<td th:text="${iterstat.index + 1}"></td>
+						<td th:text="${studentMessage.content}"></td>
+						<td th:text="${studentMessage.description}"></td>
+						<td th:text="${studentMessage.sentTime}"></td>
+						<td th:text="${studentMessage.studentId}"></td>
+						<td th:text="${studentMessage.adminId}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</center>
+</body>
+
+</html>

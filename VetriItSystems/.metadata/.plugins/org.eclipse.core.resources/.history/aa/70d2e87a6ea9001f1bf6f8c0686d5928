@@ -1,0 +1,105 @@
+body {
+	background-color: #DDA0DD;
+}
+
+.color {
+	background: linear-gradient(to right, #F4A460, #FFDEAD, #FF69B4);
+	margin-top: 7px;
+	min-height: 88vh;
+	padding-bottom: 40px;
+	padding-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.admin,
+.student {
+	width: 400px;
+	height: 400px;
+	font-size: 20px;
+	font-family: sans-serif;
+	letter-spacing: 0.1px;
+	color: lightslategray;
+	background-color: whitesmoke;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 10px;
+}
+
+.admin h2,
+.student h2 {
+	margin-top: 5px;
+}
+
+input {
+	display: block;
+	background: transparent;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid black;
+	padding: 10px;
+	color: #800080;
+	font-size: 16px;
+	cursor: pointer;
+	width: 200px;
+	transition: width 1.1s ease;
+}
+
+input:hover {
+	width: 300px;
+}
+
+.loginButton {
+	border: 1px solid #800080;
+	cursor: pointer;
+	color: #800080;
+	font-weight: bold;
+	padding: 5px;
+	width: 80px;
+	transition: width 1s ease;
+	border-color: #800080;
+}
+
+.loginButton:hover {
+	width: 110px;
+	border-radius: 5px;
+	color: antiquewhite;
+	background-color: #800080;
+}
+
+.back {
+	width: 80px;
+	text-align: center;
+	color: #800080;
+	text-decoration: none;
+	border: 2px solid #800080;
+	padding: 10px;
+	position: fixed;
+	top: 8px;
+	left: 9px;
+	font-weight: bold;
+}
+
+.back:hover {
+	background-color: #800080;
+	color: antiquewhite;
+	transition: 0.3s;
+	border: #800080;
+}
+
+.forgotPassword {
+	color: #800080;
+	text-decoration: none;
+	margin-top: 20px;
+	position: relative;
+	right: -80px;
+}
+
+.forgotPassword:hover {
+	text-decoration: underline;
+	color: #800080;
+}

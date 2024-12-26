@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>ADMIN ALL DATA</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="" th:href="@{/Admin/Admin_All_Data.css}" />
+</head>
+
+<body>
+	<a class="back" href="/adminDetails">Back</a>
+	<center>
+		<div class="admins">
+			<h2>Admins Details :</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>S_No</th>
+						<th>Admin_Name</th>
+						<th>Admin_Email</th>
+						<th>Admin_Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="admin, iterStat : ${admins}">
+						<td th:text="${iterStat.index + 1}"></td>
+						<td th:text="${admin.adminName}"></td>
+						<td th:text="${admin.adminEmail}"></td>
+						<td th:text="${admin.adminNumber}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</center>
+</body>
+
+</html>

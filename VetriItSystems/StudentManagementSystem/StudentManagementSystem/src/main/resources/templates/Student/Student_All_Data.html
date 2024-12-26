@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>STUDENT ALL DATA</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="" th:href="@{/Student/Student_All_Data.css}" />
+</head>
+
+<body>
+	<a class="back" href="/student/details">Back</a>
+	<center>
+		<div class="students">
+			<h2>Student Details :</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>S_No</th>
+						<th>Student_Name</th>
+						<th>Student_Email</th>
+						<th>Student_Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="students, iterStat : ${students}">
+						<td th:text="${iterStat.index + 1}"></td>
+						<td th:text="${students.studentName}"></td>
+						<td th:text="${students.studentEmail}"></td>
+						<td th:text="${students.studentNumber}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</center>
+</body>
+
+</html>

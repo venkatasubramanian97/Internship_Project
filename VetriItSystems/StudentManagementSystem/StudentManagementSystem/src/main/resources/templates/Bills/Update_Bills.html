@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Update Fees Bill</title>
+	<link rel="stylesheet" th:href="@{/Bills/Update_Bills.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<div class="container">
+			<a class="back" href="/bills/details">Back</a>
+
+			<div class="billsForm">
+				<h1>Update Fees Bill</h1>
+
+				<form action="/bills/update" method="post" enctype="multipart/form-data" id="billsForm">
+					<input type="hidden" name="id" th:value="${bills.id}" />
+
+					<label for="studentName">Student Name:</label>
+					<input type="text" id="studentName" name="studentName" th:value="${bills.studentName}" required><br>
+
+					<label for="courseName">Course Name:</label>
+					<input type="text" id="courseName" name="courseName" th:value="${bills.courseName}" required><br>
+
+					<label for="amount">Fees Amount:</label>
+					<input type="text" id="amount" name="amount" th:value="${bills.amount}" required><br>
+
+					<label for="issueDate">Issue Date:</label>
+					<input type="date" id="issueDate" name="issueDate" th:value="${bills.issueDate}" required><br>
+
+					<label for="issuedBy">Issued By:</label>
+					<input type="text" id="issuedBy" name="issuedBy" th:value="${bills.issuedBy}" required><br>
+
+					<label for="studentId">Student ID:</label>
+					<input type="text" id="studentId" name="studentId" th:value="${bills.studentId}" required><br>
+
+					<input type="hidden" id="billData" name="billData" />
+					<button type="button" onclick="generateBill()">Generate Bill</button>
+				</form>
+			</div>
+
+			<div class="billsPreview">
+				<h2>Bill Preview:</h2>
+				<div id="billPreview" class="bills-preview">
+
+					<div class="bills-header">
+						<h3 style="color: blue;">VETRI TECHNOLOGY SOLUTIONS</h3>
+						<div style="font-size: 18px;">FEES BILL</div>
+					</div>
+
+					<div class="bills-body" id="billBody">
+						<div style="font-size: larger; color: midnightblue;">
+							Student_Name : <span id="billStudentName">[Student Name]</span> <br>
+							Course_Name : <span id="billCourseName">[Course Name]</span>
+							, Fees_Amount : <span id="billAmount">[Amount]</span><br>
+							Student_Id : <span id="billStudentId">[Student Id] </span>
+							, Date : <span id="billIssueDate">[Date]</span><br>
+						</div>
+					</div>
+
+					<div class="bills-footer">
+						<div>
+							<div>Sincerely Yours</div>
+							<div><span id="billIssuedBy1">[Issuer]</span></div>
+							<div style="font-size: larger; font-weight: bold;">PRAVIN KUMAR P</div>
+							<div style="font-size: medium;">Founder & CEO</div>
+						</div>
+						<div>
+							<div>Sincerely Yours</div>
+							<div><span id="billIssuedBy2">[Issuer]</span></div>
+							<div style="font-size: larger; font-weight: bold;">PUNITHA V</div>
+							<div style="font-size: medium;">General Manager</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<script>
+				function generateBill() {
+					const studentName = document.getElementById('studentName').value;
+					const courseName = document.getElementById('courseName').value;
+					const amount = document.getElementById('amount').value;
+					const issueDate = document.getElementById('issueDate').value;
+					const issuedBy = document.getElementById('issuedBy').value;
+					const studentId = document.getElementById('studentId').value;
+
+					// Update preview fields
+					document.getElementById('billStudentName').textContent = studentName;
+					document.getElementById('billCourseName').textContent = courseName;
+					document.getElementById('billAmount').textContent = amount;
+					document.getElementById('billIssueDate').textContent = issueDate;
+					document.getElementById('billIssuedBy1').textContent = issuedBy;
+					document.getElementById('billIssuedBy2').textContent = issuedBy;
+					document.getElementById('billStudentId').textContent = studentId;
+
+					// Capture and convert preview to image
+					html2canvas(document.getElementById('billPreview')).then(canvas => {
+						const imageData = canvas.toDataURL('image/png');
+						document.getElementById('billData').value = imageData;
+
+						// Submit the form
+						document.getElementById('billsForm').submit();
+					});
+				}
+			</script>
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+		</div>
+	</div>
+</body>
+
+</html>

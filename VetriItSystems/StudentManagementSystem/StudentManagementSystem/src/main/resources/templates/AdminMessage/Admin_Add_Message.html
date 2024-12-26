@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>ADMIN ADD MESSAGE</title>
+	<link rel="stylesheet" href="" th:href="@{/AdminMessage/Admin_Add_Message.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/message/details">Back</a>
+		<div class="addMessage">
+			<h3 style="color: red;">ADD NEW MESSAGE</h3>
+
+			<form th:action="@{/adminAddingMessage}" method="post">
+
+				Message Content:
+				<input type="text" name="content" placeholder="Enter content..." class="content" minlength="3" required>
+
+				Message Description:
+				<textarea name="description" placeholder="Enter description..." class="description" rows="4" cols="35"
+					required></textarea><br>
+
+				Student ID:
+				<input type="text" name="student" placeholder="Enter student ID..." class="student" minlength="1"
+					required><br>
+
+				<button type="submit">Add Message</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

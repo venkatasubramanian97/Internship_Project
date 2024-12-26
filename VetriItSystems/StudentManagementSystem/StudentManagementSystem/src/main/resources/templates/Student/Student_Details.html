@@ -1,0 +1,34 @@
+</html>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>STUDENT PAGE</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" th:href="@{/Admin/Admin_Details.css}" />
+</head>
+
+<body>
+	<div class="admins_nav">
+		<h2 style="margin-top: 30px; margin-bottom: 30px;">STUDENT DETAILS</h2>
+		<img src="/IMAGES/login.jpg" alt="Admin Image" style="width:200px; height:200px; border-radius: 50%;">
+		<a class="btns" th:href="@{/Student/details}">Student Details</a>
+		<a class="btns" th:href="@{/Certificate/details}">Certificate Details</a>
+		<a class="btns" th:href="@{/Fees/details}">Fees Details</a>
+		<a class="btns" th:href="@{/Message/details}">Message Details</a>
+		<a class="btns" th:href="@{/Bills/details}">Bill Details</a>
+	</div>
+
+	<div class="admins">
+		<a class="back" href="/student">Back</a>
+		<a th:href="@{/studentview}" class="button-link">
+			<div class="button b1">
+				<h3 class="heading-underline">Student Details</h3>
+				<p style="font-weight: bold;">View My Details</p>
+			</div>
+		</a>
+	</div>
+</body>
+
+</html>

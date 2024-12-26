@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>DELETE STUDENT PAGE</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="" th:href="@{/Student/Delete_Student_Data.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/student/details">Back</a>
+		<center>
+			<section class="tables">
+				<div class="student">
+					<h2>Student Details :</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>S_No</th>
+								<th>Student_Name</th>
+								<th>Student_Email</th>
+								<th>Student_Number</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="student, iterstat :${students}">
+								<td th:text="${iterstat.index + 1}"></td>
+								<td th:text="${student.studentName}"></td>
+								<td th:text="${student.studentEmail}"></td>
+								<td th:text="${student.studentNumber}"></td>
+								<td style="display: flex; justify-content: space-evenly;"> <a style="color: red;"
+										href="" th:href="@{'/deleteStudent/'+${student.id}}"
+										onclick="return confirm('Are you sure you want to delete this student?');"><i
+											class="fa-solid fa-trash"></i></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</center>
+	</div>
+</body>
+
+</html>

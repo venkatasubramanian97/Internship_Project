@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>ADD STUDENT</title>
+	<link rel="stylesheet" href="" th:href="@{/Student/Add_Student.css}" />
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/student/details">Back</a>
+		<div class="addStudent">
+			<h3 style="color: red;">ADD NEW STUDENT</h3>
+
+			<form action="" th:action="@{/addingStudent}" method="post">
+
+				Student_Name :
+				<input type="text" name="studentName" placeholder="Enter name..." class="studentName" minlength="2"
+					required>
+
+				Student_Email :
+				<input type="email" name="studentEmail" placeholder="Enter email..." class="studentEmail" required>
+
+				Student_Number :
+				<input type="tel" name="studentNumber" placeholder="Enter 10 digit mobile number..."
+					class="studentNumber" pattern="[0-9]{10}" required />
+
+				Student_Password :
+				<input type="password" name="studentPassword" placeholder="Enter password..." class="studentPassword"
+					minlength="5" required />
+
+				<button type="submit">Add_Student</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

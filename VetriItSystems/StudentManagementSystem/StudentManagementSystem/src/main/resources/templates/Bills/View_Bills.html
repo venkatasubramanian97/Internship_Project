@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VIEW BILLS</title>
+	<link rel="stylesheet" href="" th:href="@{/Bills/View_Bills.css}" />
+
+	<style>
+		img {
+			max-width: 800px;
+			height: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="color">
+		<a class="back" href="/Bills/details">Back</a>
+		<center>
+			<div class="certificates">
+				<h2>Bills Details :</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>S.No</th>
+							<th>Bills Image</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="bills, iterStat : ${bills}">
+							<td th:text="${iterStat.index + 1}"></td>
+							<td style="display: flex; justify-content: center;">
+								<img th:src="'data:image/png;base64,' + ${bills.getBillImageBase64()}"
+									alt="Bills Image" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</center>
+	</div>
+</body>
+
+</html>

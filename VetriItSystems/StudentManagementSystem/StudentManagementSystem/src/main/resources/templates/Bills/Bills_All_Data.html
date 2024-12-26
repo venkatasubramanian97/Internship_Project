@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VIEW ALL BILLS</title>
+	<link rel="stylesheet" href="" th:href="@{/Bills/Bills_All_Data.css}" />
+
+	<style>
+		img {
+			max-width: 200px;
+			height: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<a class="back" href="/bills/details">Back</a>
+	<center>
+		<div class="certificates">
+			<h2>Bills Details :</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>S.No</th>
+						<th>Student Name</th>
+						<th>Course Name </th>
+						<th>Amount</th>
+						<th>Issue Date</th>
+						<th>Issued By</th>
+						<th>Student Id</th>
+						<th>Bill Image</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="bills, iterStat : ${bills}">
+						<td th:text="${iterStat.index + 1}"></td>
+						<td th:text="${bills.studentName}"></td>
+						<td th:text="${bills.courseName}"></td>
+						<td th:text="${bills.amount}"></td>
+						<td th:text="${bills.issueDate}"></td>
+						<td th:text="${bills.issuedBy}"></td>
+						<td th:text="${bills.studentId}"></td>
+						<td>
+							<img th:src="'data:image/png;base64,' + ${bills.getBillImageBase64()}"
+								alt="Bills Image" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</center>
+</body>
+
+</html>
